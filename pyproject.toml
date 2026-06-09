@@ -6,7 +6,7 @@ authors = [
     {name = "dellyu03",email = "seunghwan081@gmail.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.13,<3.15"
 dependencies = [
     "pandas (<3.0.0)",
     "fastf1 (>=3.8.3,<4.0.0)",
@@ -16,14 +16,30 @@ dependencies = [
     "seaborn (>=0.13.2,<0.14.0)",
     "matplotlib (>=3.10.9,<4.0.0)",
     "missingno (>=0.5.2,<0.6.0)",
-    "scikit-learn (>=1.8.0,<2.0.0)"
+    "scikit-learn (>=1.8.0,<2.0.0)",
+    "torch (>=2.12.0,<3.0.0)",
+    "lightgbm (>=4.6.0,<5.0.0)",
+    "xgboost (>=3.2.0,<4.0.0)",
+    "optuna (>=4.0.0,<5.0.0)",
+    "openpyxl (>=3.1.0,<4.0.0)"
 ]
 
+
+[tool.poetry]
+package-mode = false
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
+[tool.poetry.dependencies]
+torch = {version = "2.12.0+cu132", source = "pytorch-cuda"}
+
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^7.2.0"
+
+[[tool.poetry.source]]
+name = "pytorch-cuda"
+url = "https://download.pytorch.org/whl/cu132"
+priority = "explicit"
 
